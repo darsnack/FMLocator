@@ -37,10 +37,28 @@ def getVoronaiPoints(stations):
 		for simplice in simplices:
 			voronaiPts.append(getCenterPoint([coordinates[simplice[0]], coordinates[simplice[1]], coordinates[simplice[2]]]))
 
-		return voronaiPts
+		return (voronaiPts,simplices,coordinates)
 
-def getStrongestPoint(voronaiPoints):
-	
+def getStrongestPoint(voronaiPoints,simplices,stations):
+	sigStrength = []
+	avgSigPower = []
+	for station in stations:
+		sigStrength.append(station['SignalStrength'])
+
+	for simple in simplices:
+		avgSigPower.append((sigStrength[simplices[1]] + sigStrength[simplices[2]] + sigStrength[simplices[3]])/3)
+
+	for sigPower in avgSigPower:
+		max = 0
+		index = 0
+		if sigpower > max:
+			max = sigpower
+			maxIndex = index
+		index += 1
+
+	(lat, lng) = voronaiPoints[maxIndex]
+	return (lat,lng)
+
 
 if __name__ == '__main__':
 	stationList = []
