@@ -1,9 +1,12 @@
 #! /usr/bin/env python
 
-from v4l2radio import *
 import time
 import signal
 import sys
+import os
+from pyv4l2radio.src.v4l2radio.FMRadio import *
+from pyv4l2radio.src.v4l2radio.RDSDecoder import *
+from pyv4l2radio.src.v4l2radio.RadioDNSRDSListener import *
 
 _STATION_FREQUENCY =  101.5
 _RDNS_LOCALE = 'gb'
@@ -12,7 +15,7 @@ def main():
         try:
                 tuner = FMRadio()
         except FMRadioUnavailableError:
-                print "FM radio device is unavailable"
+                print("FM radio device is unavailable")
                 sys.exit(1)
 
         decoder = RDSDecoder(tuner)
@@ -27,7 +30,7 @@ def main():
           
         # tune to a radio service
         frequency = float(sys.argv[1]) if len(sys.argv) is 2 else _DEFAULT_FREQUENCY
-        print "Tuning to %0.2f Mhz" % frequency
+        print("Tuning to %0.2f Mhz" % frequency)
             
         tuner.set_frequency(frequency * 1000.0)
         tuner.rds.add_listener(RadioDNSRDSListener(_RDNS_LOCALE))

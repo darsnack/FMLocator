@@ -27,7 +27,7 @@ __all__ = ["FMRadio", "FMRadioError", "FMRadioUnavailableError",
            "FMRadioOperationNotSupportedError"]
 
 
-from RDSDecoder import RDSDecoder
+from pyv4l2radio.src.v4l2radio import RDSDecoder
 import os
 from fcntl import ioctl
 import struct

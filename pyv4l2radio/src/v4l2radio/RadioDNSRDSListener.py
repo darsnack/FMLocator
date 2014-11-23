@@ -21,7 +21,7 @@
 __all__ = ["RadioDNSRDSListener"]
 
 
-from RDSDecoder import RDSDecoderListener
+from pyv4l2radio.src.v4l2radio.RDSDecoder import RDSDecoderListener
 import dns.resolver
 
 

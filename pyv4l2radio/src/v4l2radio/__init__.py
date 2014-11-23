@@ -18,9 +18,9 @@
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
 
-from FMRadio import *
-from RDSDecoder import *
-from RadioDNSRDSListener import *
+# from FMRadio import *
+# from RDSDecoder import *
+# from RadioDNSRDSListener import *
 
 
-__VERSION__ = 0.3
+# __VERSION__ = 0.3
