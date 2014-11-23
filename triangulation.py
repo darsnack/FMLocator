@@ -39,6 +39,9 @@ def getVoronaiPoints(stations):
 
 		return voronaiPts
 
+def getStrongestPoint(voronaiPoints):
+	
+
 if __name__ == '__main__':
 	stationList = []
 	stationList.append({'Callsign': 'WMBI', 'Coordinates': [41.92806, -88.0069]})
