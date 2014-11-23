@@ -1,0 +1,64 @@
+<!doctype html> 
+<html dir="ltr" lang="en-GB"> 
+<head> 
+    <meta charset="UTF-8" /> 
+    <title>Radio API</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script>
+	    function updateRDS() {
+	        $.get('/status.json', function (data) {
+	            $("#frequency").text(data.radio.tuner[0].frequency);
+	            $("#ecc").text(data.radio.tuner[0].rds.ecc);
+	            $("#pi").text(data.radio.tuner[0].rds.pi);
+	            $("#ps").text(data.radio.tuner[0].rds.ps);
+	            $("#rt").text(data.radio.tuner[0].rds.rt);
+	        });
+	        setTimeout(updateRDS, 1000);
+	    }
+	    
+        $(function () {
+            updateRDS();
+        });
+    </script>
+    <style>
+        body { font-family: sans-serif; }
+        div { width: 50%; margin-left: auto; margin-right: auto; text-align: center; }
+        table { border-collapse: collapse; width: 100%; }
+        table caption { font-weight: bold; }
+        th, td { border: 1px solid; width: 50%; }
+    </style>
+</head>
+<body>
+  <div>
+	  <h1>pyv4l2radio Web Interface</h1>
+	  <h2>Tuner 1</h2>
+	  <table>
+        <caption>RDS parameters</caption>
+        <tr>
+          <th>Name</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>Frequency</td>
+          <td id="frequency"></td>
+        </tr>
+        <tr>
+          <td>ECC</td>
+          <td id="ecc"></td>
+        </tr>
+        <tr>
+          <td>PI code</td>
+          <td id="pi"></td>
+        </tr>
+        <tr>
+          <td>PS</td>
+          <td id="ps"></td>
+        </tr>
+        <tr>
+          <td>RT</td>
+          <td id="rt"></td>
+        </tr>
+      </table>
+  </div>
+</body>
+</html>
